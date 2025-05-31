@@ -9,8 +9,11 @@ export const Home = () => {
   const fetchContacts = async () = {
 	try {
 		const response = await fetch(https://playground.4geeks.com/contact/agendas/dwane_dunn/contacts);
-		const resultData = await response.json();
-		dispatch({});
+		const results = await response.json();
+		dispatch({
+			type: 'set_contacts',
+			payload: results,
+		});
 	} catch (error) {
 		throw new Error(error);
 	}
